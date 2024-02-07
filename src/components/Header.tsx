@@ -44,7 +44,7 @@ export const Header = () => {
   return (
     <div>
       <div className="bg-black">
-        <div className=" py-3 tablet:flex tablet:justify-between tablet:py-5 tablet:max-w-[720px] tablet:m-auto bigTablet:max-w-[960px] desktop:max-w-[1140px]">
+        <div className=" py-3 tablet:flex tablet:justify-between tablet:py-5  tablet:max-w-[720px] tablet:m-auto bigTablet:max-w-[960px] desktop:max-w-[1140px]">
           <p className=" text-white text-center">{formattedDate}</p>
           <div className="flex justify-center gap-6 mt-5 tablet:mt-0">
             <select
@@ -69,7 +69,7 @@ export const Header = () => {
         </div>
       </div>
       <div className=" rounded-b shadow-md rounded-sm fixed w-full ">
-        <div className="flex justify-between  max-w-[540px] m-auto tablet:px-0 tablet:max-w-[720px] bigTablet:max-w-[960px] desktop:max-w-[1140px]  bg-white bigTablet:pt-[32px]">
+        <div className="flex justify-between px-3 smallTablet:w-[540px] m-auto tablet:px-0 tablet:w-[720px] bigTablet:w-[960px] desktop:w-[1140px]  bg-white bigTablet:pt-[32px]">
           <img
             className="p-4 border border-solid border-gray  m-auto mx-0 bigTablet:hidden "
             src={Menu}
