@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <Header />
+      <div className=" mt-[50px] bigTablet:mt-[90px]"></div>
       <Footer />
     </>
   );
