@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { ka } from "date-fns/locale";
 import Menu from "../assets/Menu.svg";
@@ -41,6 +41,20 @@ export const Header = () => {
     setSelectedOption(selectedValue);
   };
 
+  //if page is scrolling
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolling = window.scrollY > 0;
+      setIsScrolling(isScrolling);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  console.log(isScrolling);
+
   return (
     <div>
       <div className="bg-black">
@@ -68,8 +82,12 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className=" rounded-b shadow-md rounded-sm fixed w-full ">
-        <div className="flex justify-between px-3 smallTablet:w-[540px] m-auto tablet:px-0 tablet:w-[720px] bigTablet:w-[960px] desktop:w-[1140px]  bg-white bigTablet:pt-[32px]">
+      <div
+        className={` rounded-b shadow-md rounded-sm fixed w-full bg-white ${
+          isScrolling && "top-0"
+        }`}
+      >
+        <div className="flex justify-between px-3 smallTablet:w-[540px] m-auto tablet:px-0 tablet:w-[720px] bigTablet:w-[960px] desktop:w-[1140px]   bigTablet:pt-[32px]">
           <img
             className="p-4 border border-solid border-gray  m-auto mx-0 bigTablet:hidden "
             src={Menu}
@@ -162,7 +180,7 @@ export const Header = () => {
         </div>
       </div>
       {isMenuOpen && <MobileHeader setIsMenuOpen={setIsMenuOpen} />}
-      {isSearchOpen && <Search />}
+      {isSearchOpen && <Search isScrolling={isScrolling} />}
     </div>
   );
 };
