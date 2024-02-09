@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import Arrow from "../assets/Arrow - Down.svg";
 import Search from "../assets/Search.svg";
@@ -19,7 +18,7 @@ export const MobileHeader = ({ setIsMenuOpen }: any) => {
     { value: "stocks", label: "Stocks" },
   ];
   return (
-    <div className=" absolute h-full left-0 w-full top-0 flex ">
+    <div className=" absolute h-full left-0 w-full top-0 flex z-10">
       <div className=" p-5 bg-white w-[330px] smallTablet:w-[450px] ">
         <div className="flex justify-between ">
           <div className="flex rounded-sm border-gray border py-3 px-2">
@@ -50,21 +49,21 @@ export const MobileHeader = ({ setIsMenuOpen }: any) => {
           </svg>
         </div>
         <hr className="my-6"></hr>
-        <div className="flex flex-col gap-7 w-full ">
-          <p>მთავარი</p>
+        <div className="flex flex-col gap-7 w-full font-medium">
+          <p className="font-medium">მთავარი</p>
           <div
             className="relative inline-block  "
             onClick={() => setIsMarketHovered(!isMarketHovered)}
           >
             <div className="flex justify-between">
-              <button className=" ">ბაზრები</button>
+              <button className="font-medium">ბაზრები</button>
               <img src={Arrow} />
             </div>
             {isMarketHovered && (
               <div className="absolute border-darkGray mt-4 text-menuColor w-full rounded-md border bg-gray rounded-b shadow-md ">
                 {market.map((option) => (
                   <p
-                    className="hover:bg-gray cursor-pointer py-2 px-1"
+                    className="hover:bg-gray cursor-pointer py-2 px-1 font-medium"
                     key={option.value}
                     onClick={() => console.log(option.value)}
                   >
@@ -74,21 +73,21 @@ export const MobileHeader = ({ setIsMenuOpen }: any) => {
               </div>
             )}
           </div>
-          <p>კრიპტო</p>
-          <p>ეკონომიკა</p>
+          <p className="font-medium	">კრიპტო</p>
+          <p className="font-medium	">ეკონომიკა</p>
           <div
             className="relative inline-block pb-8 "
             onClick={() => setIsEducationHovered(!isEducationHovered)}
           >
             <div className="flex gap-4 justify-between">
-              <button>განათლება</button>
+              <button className="font-medium	">განათლება</button>
               <img src={Arrow} />
             </div>
             {isEducationHovered && (
               <div className="absolute border-darkGray mt-4 text-menuColor w-full rounded-md border bg-gray rounded-b shadow-md">
                 {education.map((option) => (
                   <p
-                    className="hover:bg-gray cursor-pointer py-2 px-1"
+                    className="hover:bg-gray cursor-pointer py-2 px-1 font-medium	"
                     key={option.value}
                   >
                     {option.label}

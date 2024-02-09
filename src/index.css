@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "FiraGo";
+  src: url(../src/fonts/FiraGO-Regular.otf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  font-family: "FiraGo";
+}
 #horizontalScroll {
   overflow: hidden;
   white-space: nowrap;
@@ -38,4 +44,9 @@
   to {
     transform: translate(calc(-50% - 0.5rem));
   }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
 }

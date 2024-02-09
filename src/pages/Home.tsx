@@ -1,4 +1,4 @@
-import React from "react";
+import { Slider } from "../components/Slider";
 const slides = [
   {
     proName: "FOREXCOM:SPXUSD",
@@ -55,10 +55,10 @@ const slides = [
 ];
 export const Home = () => {
   return (
-    <div className="px-3 smallTablet:w-[500px] tablet:w-[720px] tablet:m-auto bigTablet:w-[960px] desktop:w-[1140px] m-auto">
-      <div id="information-area">
+    <div className="px-3 smallTablet:w-[500px] tablet:w-[720px] tablet:m-auto bigTablet:w-[960px] desktop:w-[1140px] m-auto  ">
+      <div id="information-area" className="relative" style={{ zIndex: -100 }}>
         <div id="horizontalScroll">
-          <div id="scrollContent">
+          <div id="scrollContent" className="">
             {slides.map((slide, index) => (
               <div className="contentItem" key={index}>
                 {slide.title}-{slide.proName}
@@ -67,6 +67,8 @@ export const Home = () => {
           </div>
         </div>
       </div>
+
+      <Slider />
     </div>
   );
 };
