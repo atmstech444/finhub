@@ -53,7 +53,6 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(isScrolling);
 
   return (
     <div>
@@ -83,7 +82,7 @@ export const Header = () => {
         </div>
       </div>
       <div
-        className={` rounded-b shadow-md rounded-sm fixed w-full bg-white ${
+        className={` rounded-b shadow-md rounded-sm fixed w-full bg-white z-10 ${
           isScrolling && "top-0"
         }`}
       >
@@ -95,7 +94,7 @@ export const Header = () => {
           />
           <p>Finhub 365</p>
           <div className="hidden bigTablet:flex gap-10 ">
-            <p className="hover:border-b-2 border-red cursor-pointer">
+            <p className="hover:border-b-2 border-red cursor-pointer font-medium	">
               მთავარი
             </p>
             <div
@@ -104,14 +103,19 @@ export const Header = () => {
               onMouseLeave={() => setIsMarketHovered(false)}
             >
               <div className="flex gap-4">
-                <button>ბაზრები</button>
+                <button className="font-medium	">ბაზრები</button>
                 <img src={Arrow} />
               </div>
               {isMarketHovered && (
-                <div className="absolute mt-8  bg-white border-t-2 border-red rounded-b shadow-md rounded-sm ">
+                <div
+                  className="absolute mt-8 z-50 bg-white border-t-2 border-red rounded-b shadow-md rounded-sm "
+                  style={{
+                    zIndex: 100,
+                  }}
+                >
                   {market.map((option) => (
                     <p
-                      className="hover:bg-gray cursor-pointer py-2 px-1"
+                      className="hover:bg-gray cursor-pointer py-2 px-1 font-medium	"
                       key={option.value}
                       onClick={() => console.log(option.value)}
                     >
@@ -121,8 +125,10 @@ export const Header = () => {
                 </div>
               )}
             </div>
-            <p className="hover:border-b-2 border-red cursor-pointer">კრიპტო</p>
-            <p className="hover:border-b-2 border-red cursor-pointer">
+            <p className="hover:border-b-2 border-red cursor-pointer font-medium">
+              კრიპტო
+            </p>
+            <p className="hover:border-b-2 border-red cursor-pointer font-medium">
               ეკონომიკა
             </p>
             <div
@@ -131,14 +137,14 @@ export const Header = () => {
               onMouseLeave={() => setIsEducationHovered(false)}
             >
               <div className="flex gap-4">
-                <button>განათლება</button>
+                <button className="font-medium">განათლება</button>
                 <img src={Arrow} />
               </div>
               {isEducationHovered && (
                 <div className="absolute mt-8 bg-white border-t-2 border-red rounded-b shadow-md rounded-sm ">
                   {education.map((option) => (
                     <p
-                      className="hover:bg-gray cursor-pointer py-2 px-1"
+                      className="hover:bg-gray cursor-pointer py-2 px-1 font-medium"
                       key={option.value}
                     >
                       {option.label}

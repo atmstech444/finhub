@@ -18,6 +18,7 @@ export default {
       darkGray: "#888",
       menuColor: "#212529",
       borderGray: "#CDCDCD",
+      dark: "#343a40",
     },
   },
   plugins: [],

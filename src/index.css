@@ -2,8 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "FiraGo";
+  src: url(../src/fonts/FiraGO-Regular.otf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: "FiraGo";
+}
+#horizontalScroll {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#scrollContent {
+  display: inline-flex;
+  animation: scroll 20s linear infinite;
+}
+
+.contentItem {
+  min-width: 200px;
+  border-right: 1px solid #e0e3eb80;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#horizontalScroll:hover > div {
+  -webkit-animation-play-state: paused !important;
+  -moz-animation-play-state: paused !important;
+  -o-animation-play-state: paused !important;
+  animation-play-state: paused !important;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
 }
