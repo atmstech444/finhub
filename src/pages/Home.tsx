@@ -1,3 +1,4 @@
+import { ArticleSlider } from "../components/ArticleSlider";
 import { Slider } from "../components/Slider";
 const slides = [
   {
@@ -69,6 +70,7 @@ export const Home = () => {
       </div>
 
       <Slider />
+      <ArticleSlider />
     </div>
   );
 };

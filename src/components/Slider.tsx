@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Left from "../assets/Arrow - Left.svg";
 import Right from "../assets/Arrow - Right.svg";
+import axios from "axios";
 
 export const Slider = () => {
   const items = [
@@ -55,6 +56,25 @@ export const Slider = () => {
       slidesPerView: 3,
     },
   };
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+  //       );
+  //       console.log(data);
+  //       return data;
+  //     } catch (error) {
+  //       console.error("Error fetching blog:", error);
+  //       return {
+  //         success: false,
+  //         message: "An unexpected error occurred",
+  //       };
+  //     }
+  //   };
+  //   getData();
+  // }, []);
 
   return (
     <section className="flex gap-3 mt-10">

@@ -19,6 +19,8 @@ export default {
       menuColor: "#212529",
       borderGray: "#CDCDCD",
       dark: "#343a40",
+      blue: "#001D3D",
+      green: "#089981",
     },
   },
   plugins: [],
